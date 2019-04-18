@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TopStockSymbols } from 'src/app/models/top-stocks';
-import { StockPricesHttpService } from 'src/app/services/stock-prices-http/stock-prices-http.service';
 
 @Component({
   selector: 'app-top-menu-bar',
@@ -11,11 +10,11 @@ export class TopMenuBarComponent {
 
   @Output() show = new EventEmitter();
   topStockSymbols: string[];
-  selectedSymbol = 'MSFT';
-  threshold: number;
-  numOfPoints: number;
+  selectedSymbol = 'MSFT'; // Initial value only
+  threshold = 50;  // Initial value only
+  numOfPoints = 5;  // Initial value only
 
-  constructor(private stockPricesHttpService: StockPricesHttpService) { 
+  constructor() { 
     this.topStockSymbols = TopStockSymbols;
   }
 

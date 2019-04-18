@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { IChartData } from 'src/app/models/ichart-data';
 import { ReplaySubject, Observable } from 'rxjs';
 import { StockPricesHttpService } from '../stock-prices-http/stock-prices-http.service';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

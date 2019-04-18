@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { StockPricesArrangeDataService } from '../stock-prices-arrange-data/stock-prices-arrange-data.service';
 import { Observable } from 'rxjs';
 
 @Injectable({

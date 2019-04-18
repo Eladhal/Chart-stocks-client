@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
-import { Observable, of } from 'rxjs';
-import { StockPricesHttpService } from 'src/app/services/stock-prices-http/stock-prices-http.service';
 import { StockPricesArrangeDataService } from 'src/app/services/stock-prices-arrange-data/stock-prices-arrange-data.service';
 
 @Component({
@@ -69,7 +67,6 @@ export class LineChartComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [pluginAnnotations];
-  // @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   constructor(private stockPricesArrangeDataService: StockPricesArrangeDataService) { 
   }
@@ -77,7 +74,6 @@ export class LineChartComponent implements OnInit {
   ngOnInit() {
     this.stockPricesArrangeDataService.getStockPrices();
     this.stockPricesArrangeDataService.getChartdataSubjectObservable()
-      //.pipe(catchError(this.handleError<IchartData>('getStockPrices', )))
       .subscribe((chartData)=>{
         console.log(this.lineChartData);
         this.lineChartData = [
@@ -87,9 +83,6 @@ export class LineChartComponent implements OnInit {
         
         this.lineChartLabels = chartData.labels;
       });
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
   }
 
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
