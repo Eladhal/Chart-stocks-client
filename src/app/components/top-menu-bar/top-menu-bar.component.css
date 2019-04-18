@@ -1,0 +1,18 @@
+.example-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.thresholdInput{
+    width: 15%;
+}
+
+mat-form-field {
+    margin-right: 20px;
+}
+
+.dropDownStock{
+    width: 35%;
+}
+  
